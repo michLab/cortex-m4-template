@@ -1,6 +1,6 @@
 #include "interrupts.h"
 
-__attribute__((interrupt)) void EXTI0_IRQHandler(void)
+void EXTI0_IRQHandler(void)
 {
 	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
