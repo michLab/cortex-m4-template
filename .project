@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>cm4_template_basic</name>
+	<name>cm4_freertos_gpio_exti</name>
 	<comment></comment>
 	<projects>
 	</projects>

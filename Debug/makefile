@@ -45,13 +45,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: cm4_template_freertos.elf
+all: cm4_freertos_gpio_exti.elf
 
 # Tool invocations
-cm4_template_freertos.elf: $(OBJS) $(USER_OBJS)
+cm4_freertos_gpio_exti.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU G++ Linker'
-	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/michal/workspace/cm4_template_freertos/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "cm4_template_freertos.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
+	arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -T"/home/michal/workspace/cm4_freertos_gpio_exti/LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -fno-exceptions -fno-rtti -o "cm4_freertos_gpio_exti.elf" @"objects.list" $(USER_OBJS) $(LIBS) -lm
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -63,8 +63,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "cm4_template_freertos.elf" "cm4_template_freertos.bin"
-	arm-none-eabi-size "cm4_template_freertos.elf"
+	arm-none-eabi-objcopy -O binary "cm4_freertos_gpio_exti.elf" "cm4_freertos_gpio_exti.bin"
+	arm-none-eabi-size "cm4_freertos_gpio_exti.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents

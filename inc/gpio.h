@@ -1,14 +1,13 @@
-/*
- * gpio.h
- *
- *  Created on: 7 mar 2017
- *      Author: doktorant
- */
-
 #ifndef GPIO_H_
 #define GPIO_H_
-#include "stm32f4xx.h"
 
+#include "stm32f4xx.h"
+#include "bb.h"
+
+
+#define GPIO_TOGGLE(x,y)	((BB((x)->ODR, (y))) ^= 1)
+#define GPIO_SET_HIGH(x,y)	(BB((x)->ODR, (y)) = 1)
+#define GPIO_SET_LOW(x,y)	(BB((x)->ODR, (y)) = 0)
 
 
 typedef enum

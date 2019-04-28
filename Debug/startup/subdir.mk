@@ -15,7 +15,7 @@ startup/%.o: ../startup/%.s
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Assembler'
 	@echo $(PWD)
-	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I"/home/michal/workspace/cm4_template_freertos/StdPeriph_Driver/inc" -I"/home/michal/workspace/cm4_template_freertos/inc" -I"/home/michal/workspace/cm4_template_freertos/CMSIS/device" -I"/home/michal/workspace/cm4_template_freertos/CMSIS/core" -g -o "$@" "$<"
+	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16 -I"/home/michal/workspace/cm4_freertos_gpio_exti/StdPeriph_Driver/inc" -I"/home/michal/workspace/cm4_freertos_gpio_exti/inc" -I"/home/michal/workspace/cm4_freertos_gpio_exti/CMSIS/device" -I"/home/michal/workspace/cm4_freertos_gpio_exti/CMSIS/core" -g -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
