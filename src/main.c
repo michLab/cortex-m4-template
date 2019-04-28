@@ -50,10 +50,11 @@ void hInterruptInit(void)
 	__DSB();
 
 	NVIC_SetPriorityGrouping(0); 		// Zero disables sub-priorites
-	NVIC_SetPriority(EXTI0_IRQn, 15); 	// Set interrupt priority (non-shifted)
+	uint32_t priority = NVIC_EncodePriority( 0,13, 0);
+	NVIC_SetPriority(EXTI0_IRQn, priority); 	// Set interrupt priority (non-shifted)
 	// the priority should be between configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY and configLIBRARY_LOWEST_INTERRUPT_PRIORITY
 	// from FreeRTOSConfig.h
-	NVIC_EncodePriority( NVIC_GetPriority(EXTI0_IRQn) , 13, 0);
+
 
 	SYSCFG->EXTICR[0] = SYSCFG_EXTICR1_EXTI0_PA;
 	EXTI->RTSR = EXTI_RTSR_TR0;		// EXTI0: rising trigger enabled
