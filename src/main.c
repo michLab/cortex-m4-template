@@ -50,7 +50,7 @@ void hInterruptInit(void)
 	__DSB();
 
 	NVIC_SetPriorityGrouping(0); 		// Zero disables sub-priorites
-	uint32_t priority = NVIC_EncodePriority( 0,13, 0);
+	uint32_t priority = NVIC_EncodePriority( 0, 13, 0);
 	NVIC_SetPriority(EXTI0_IRQn, priority); 	// Set interrupt priority (non-shifted)
 	// the priority should be between configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY and configLIBRARY_LOWEST_INTERRUPT_PRIORITY
 	// from FreeRTOSConfig.h
